@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Knots 3D最新版下载，学习200多种结的打法</title>
+ <meta name="description" content="Knots_3D 9.3.0 | 一款教你绑绳结的手机应用！3D绳结 : 系上、解开，并用你的手指旋转200个以上3D绳结！Knots 3D，我们评价最高的3D绳结应用程序，让你对绳结有全新的认识！一根绳子，玩得开心！">
+    <meta name="keywords" content="knots, knot, 3D, nynix, app, 绳结, 结, 繩結">
+    <!-- 图标库必须放在第一个 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .feature-icon {
+            font-size: 1.4em;  /* 图标放大 */
+            width: 36px;       /* 保持原有图片区域尺寸 */
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);  /* 使用品牌主色 */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: rotate(10deg) scale(1.1);
+            filter: drop-shadow(0 2px 4px rgba(255,107,0,0.3));
+        }
+        :root {
+            --primary: #FF6B00;
+            --secondary: #FFE5D9;
+            --text: #333;
+            --gap: 24px;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', system-ui;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 导航系统 */
+        .nav-bar {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            margin-bottom: var(--gap);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-version {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* 主内容区 */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: var(--gap);
+            margin-bottom: var(--gap);
+        }
+
+        .screenshot {
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            padding: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .description {
+            background: var(--secondary);
+            padding: 24px;
+            border-radius: var(--radius);
+        }
+
+        /* 分类系统增强 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: var(--gap) 0;
+        }
+
+        .category-item {
+            background: linear-gradient(145deg, #ffffff 0%, #fff9f2 100%);
+            border: 1px solid rgba(255,107,0,0.15);
+            padding: 18px 20px;
+            border-radius: var(--radius);
+            display: flex;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .category-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(255,107,0,0.12);
+            border-color: rgba(255,107,0,0.3);
+        }
+
+        .category-item:hover::before {
+            opacity: 1;
+        }
+
+        .category-item span:last-child {
+            color: var(--primary);
+            font-weight: 700;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+
+        /* 功能特性增强 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: var(--gap) 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 24px;
+            background: linear-gradient(145deg, #f8f8f8 0%, #fff4eb 100%);
+            border-radius: var(--radius);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-item::before {
+            content: "";
+            position: absolute;
+            left: -3px;
+            top: 0;
+            height: 0;
+            width: 3px;
+            background: var(--primary);
+            transition: height 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(255,107,0,0.1);
+        }
+
+        .feature-item:hover::before {
+            height: 100%;
+        }
+
+        .feature-icon {
+            width: 28px;
+            height: 28px;
+            filter: drop-shadow(0 2px 4px rgba(255,107,0,0.2));
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.15);
+        }
+
+        /* FAQ系统 */
+        .faq-section {
+            background: #f5f5f5;
+            padding: 32px;
+            border-radius: var(--radius);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: calc(var(--radius) - 2px);
+        }
+
+        /* 按钮样式 */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 20px;
+            margin-top: 16px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 1024px) {
+            .hero-section { grid-template-columns: 1fr }
+            .category-grid { grid-template-columns: repeat(3, 1fr) }
+            .feature-grid { grid-template-columns: repeat(2, 1fr) }
+        }
+
+        @media (max-width: 768px) {
+            :root { --gap: 16px }
+            
+            .category-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .feature-grid { grid-template-columns: 1fr }
+            
+            .nav-bar {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .category-item {
+                padding: 14px 16px;
+            }
+
+            .feature-item {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+.section-title {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin: 32px 0 20px;
+  padding-left: 3px;
+  border-left: 3px solid var(--primary);
+  line-height: 0.3;
+}
+  footer {
+    background: var(--secondary); /* 与描述区背景色一致 */
+    padding: 20px;
+    margin-top: var(--gap);
+    text-align: center;
+    border-radius: var(--radius);
+    color: var(--text);
+  }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-title">Knots 3D</div>
+        <div class="nav-version">版本9.3.0</div>
+    </nav>
+
+    <section class="hero-section">
+        <img src="screenshot.png" class="screenshot" alt="应用界面展示">
+        <div class="description">
+            <h1>专业3D绳结教学平台</h1>
+            <p>155+种绳结持续更新，支持360度视角查看和动画速度控制，提供无广告无内购的纯净学习体验。</p>
+            <a href="https://pan.quark.cn/s/ecda608d4448" target="_blank" rel="noopener noreferrer">
+  <button class="btn-primary">立即获取完整版</button>
+</a>
+        </div>
+    </section>
+
+<h2 class="section-title">专业绳结分类库</h2>
+<section class="category-grid">
+  <!-- 原有分类内容保持不变 -->
+</section>
+    <section class="category-grid">
+        <div class="category-item"><span>攀岩</span><span>35</span></div>
+        <div class="category-item"><span>划船</span><span>35</span></div>
+        <div class="category-item"><span>露营</span><span>26</span></div>
+        <div class="category-item"><span>钓鱼</span><span>26</span></div>
+        <div class="category-item"><span>火警救援</span><span>18</span></div>
+        <div class="category-item"><span>童军</span><span>20</span></div>
+        <div class="category-item"><span>装饰</span><span>14</span></div>
+        <div class="category-item"><span>绳索护理</span><span>7</span></div>
+    </section>
+
+    <h2 class="section-title">核心功能特性</h2>
+    <section class="feature-grid">
+        <div class="feature-item">
+            <i class="feature-icon fas fa-link"></i>
+            <span>152种独特绳结教学</span>
+        </div>
+        <div class="feature-item">
+            <i class="feature-icon fas fa-tachometer-alt"></i>
+            <span>可调速动画演示 (0.5x-2x)</span>
+        </div>
+        <div class="feature-item">
+            <i class="feature-icon fas fa-globe"></i>
+            <span>支持15种语言</span>
+        </div>
+        <div class="feature-item">
+            <i class="feature-icon fas fa-cube"></i>
+            <span>360度3D视图 + 细节放大</span>
+        </div>
+        <div class="feature-item">
+            <i class="feature-icon fas fa-binoculars"></i>
+            <span>多维度浏览方式</span>
+        </div>
+        <div class="feature-item">
+            <i class="feature-icon fas fa-hand-pointer"></i>
+            <span>多点触控交互</span>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>常见问题解答</h2>
+        <div class="faq-item">
+            <h3>是否支持iOS设备？</h3>
+            <p>当前仅提供Android和Windows版本，iOS版需通过TestFlight安装</p>
+        </div>
+        <div class="faq-item">
+            <h3>是否需要付费？</h3>
+            <p>免费！感谢国外大神的修改和分享，解锁所有付费功能。</p>
+        </div>
+    </section>
+
+<!-- 页脚 -->
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <div class="mb-3">
+            <a href="https://pan.quark.cn/s/89acf482fd64" class="text-white">软件合集</a>
+        </div>
+        <small>更多软件资源获取关注微信公众号：软件挖掘机</small>
+    </div>
+</footer>
+
+</body>
+</html>
